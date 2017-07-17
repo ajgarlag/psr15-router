@@ -32,7 +32,7 @@ class RouteSpec extends ObjectBehavior
         $this->shouldHaveType(Route::class);
     }
 
-    public function it_matchs_request_through_request_matcher(RequestMatcher $requestMatcher)
+    public function it_matches_request_through_request_matcher(RequestMatcher $requestMatcher)
     {
         $request = $this->fakeAServerRequest();
         $this->match($request);

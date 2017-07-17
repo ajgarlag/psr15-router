@@ -28,7 +28,7 @@ class UriRegexRequestMatcherSpec extends ObjectBehavior
         $this->shouldHaveType(UriRegexRequestMatcher::class);
     }
 
-    public function it_matchs_request_if_uri_matchs_pattern()
+    public function it_matches_request_if_uri_matches_pattern()
     {
         $request = $this->fakeAServerRequest();
         $this->match($request)->shouldBe(true);
