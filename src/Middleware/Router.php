@@ -17,21 +17,6 @@ use Psr\Http\Message\ServerRequestInterface;
 interface Router
 {
     /**
-     * @param Route $route
-     */
-    public function addRoute(Route $route);
-
-    /**
-     * @param Route $route
-     */
-    public function removeRoute(Route $route);
-
-    /**
-     * @return Route[]
-     */
-    public function getRoutes();
-
-    /**
      * @param ServerRequestInterface $request
      *
      * @return MiddlewareInterface|null
