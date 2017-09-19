@@ -11,8 +11,8 @@
 
 namespace Ajgarlag\Psr15\Router\Middleware;
 
-use Interop\Http\ServerMiddleware\DelegateInterface;
-use Interop\Http\ServerMiddleware\MiddlewareInterface;
+use Interop\Http\Server\MiddlewareInterface;
+use Interop\Http\Server\RequestHandlerInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 class RouterMiddleware implements MiddlewareInterface
@@ -24,12 +24,12 @@ class RouterMiddleware implements MiddlewareInterface
         $this->router = $router;
     }
 
-    public function process(ServerRequestInterface $request, DelegateInterface $delegate)
+    public function process(ServerRequestInterface $request, RequestHandlerInterface $requestHandler)
     {
         if (null === $middleware = $this->router->route($request)) {
-            return $delegate->process($request);
+            return $requestHandler->handle($request);
         }
 
-        return $middleware->process($request, $delegate);
+        return $middleware->process($request, $requestHandler);
     }
 }

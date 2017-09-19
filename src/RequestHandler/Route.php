@@ -9,25 +9,25 @@
  * file that was distributed with this source code.
  */
 
-namespace Ajgarlag\Psr15\Router\Delegate;
+namespace Ajgarlag\Psr15\Router\RequestHandler;
 
 use Ajgarlag\Psr15\Router\Matcher\RequestMatcher;
-use Interop\Http\ServerMiddleware\DelegateInterface;
+use Interop\Http\Server\RequestHandlerInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 class Route
 {
     private $requestMatcher;
-    private $delegate;
+    private $requestHandler;
 
     /**
-     * @param ServerRequestMatcher $requestMatcher
-     * @param DelegateInterface    $delegate
+     * @param ServerRequestMatcher    $requestMatcher
+     * @param RequestHandlerInterface $requestHandler
      */
-    public function __construct(RequestMatcher $requestMatcher, DelegateInterface $delegate)
+    public function __construct(RequestMatcher $requestMatcher, RequestHandlerInterface $requestHandler)
     {
         $this->requestMatcher = $requestMatcher;
-        $this->delegate = $delegate;
+        $this->requestHandler = $requestHandler;
     }
 
     /**
@@ -41,10 +41,10 @@ class Route
     }
 
     /**
-     * @return DelegateInterface
+     * @return RequestHandlerInterface
      */
-    public function getDelegate()
+    public function getRequestHandler()
     {
-        return $this->delegate;
+        return $this->requestHandler;
     }
 }

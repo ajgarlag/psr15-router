@@ -13,7 +13,7 @@ namespace spec\Ajgarlag\Psr15\Router\Middleware;
 
 use Ajgarlag\Psr15\Router\Middleware\ArrayRouter;
 use Ajgarlag\Psr15\Router\Middleware\Route;
-use Interop\Http\ServerMiddleware\MiddlewareInterface;
+use Interop\Http\Server\MiddlewareInterface;
 use PhpSpec\ObjectBehavior;
 
 class ArrayRouterSpec extends ObjectBehavior

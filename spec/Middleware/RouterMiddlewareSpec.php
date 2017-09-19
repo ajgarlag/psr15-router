@@ -13,8 +13,8 @@ namespace spec\Ajgarlag\Psr15\Router\Middleware;
 
 use Ajgarlag\Psr15\Router\Middleware\Router;
 use Ajgarlag\Psr15\Router\Middleware\RouterMiddleware;
-use Interop\Http\ServerMiddleware\DelegateInterface;
-use Interop\Http\ServerMiddleware\MiddlewareInterface;
+use Interop\Http\Server\MiddlewareInterface;
+use Interop\Http\Server\RequestHandlerInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Psr\Http\Message\ServerRequestInterface;
@@ -34,31 +34,33 @@ class RouterMiddlewareSpec extends ObjectBehavior
         $this->shouldHaveType(RouterMiddleware::class);
     }
 
-    public function it_process_request_directly_through_delegate_if_no_route_match(
+    public function it_process_request_directly_through_request_handler_if_no_route_match(
         Router $router,
         MiddlewareInterface $routedMiddleware,
-        DelegateInterface $delegate
+        RequestHandlerInterface $requestHandler
     ) {
         $router->route(Argument::type(ServerRequestInterface::class))->willReturn(null);
 
         $request = $this->fakeAServerRequest();
-        $this->process($request, $delegate);
+        $this->process($request, $requestHandler);
 
-        $routedMiddleware->process($request, $delegate)->shouldNotHaveBeenCalled();
-        $delegate->process($request)->shouldHaveBeenCalled();
+        $routedMiddleware->process($request, $requestHandler)->shouldNotHaveBeenCalled();
+        $requestHandler->handle($request)->shouldHaveBeenCalled();
     }
 
     public function it_process_request_through_routed_middleware(
         Router $router,
         MiddlewareInterface $routedMiddleware,
-        DelegateInterface $delegate
+        RequestHandlerInterface $requestHandler
     ) {
         $router->route(Argument::type(ServerRequestInterface::class))->willReturn($routedMiddleware);
+        $routedMiddleware->process(Argument::type(ServerRequestInterface::class), Argument::type(RequestHandlerInterface::class))
+            ->will(function ($args) { return $args[1]->handle($args[0]); });
 
         $request = $this->fakeAServerRequest();
-        $this->process($request, $delegate);
+        $this->process($request, $requestHandler);
 
-        $routedMiddleware->process($request, $delegate)->shouldHaveBeenCalled();
-        //$delegate->process($request)->shouldHaveBeenCalled();
+        $routedMiddleware->process($request, $requestHandler)->shouldHaveBeenCalled();
+        $requestHandler->handle($request)->shouldHaveBeenCalled();
     }
 }

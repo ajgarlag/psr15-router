@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Ajgarlag\Psr15\Router\Delegate;
+namespace Ajgarlag\Psr15\Router\RequestHandler;
 
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -39,7 +39,7 @@ class ArrayRouter implements RouteCollectionRouter
     {
         foreach ($this->routes as $route) {
             if ($route->match($request)) {
-                return $route->getDelegate();
+                return $route->getRequestHandler();
             }
         }
     }

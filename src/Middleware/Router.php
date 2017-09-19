@@ -11,7 +11,7 @@
 
 namespace Ajgarlag\Psr15\Router\Middleware;
 
-use Interop\Http\ServerMiddleware\MiddlewareInterface;
+use Interop\Http\Server\MiddlewareInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 interface Router

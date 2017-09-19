@@ -12,7 +12,7 @@
 namespace Ajgarlag\Psr15\Router\Middleware;
 
 use Ajgarlag\Psr15\Router\Matcher\RequestMatcher;
-use Interop\Http\ServerMiddleware\MiddlewareInterface;
+use Interop\Http\Server\MiddlewareInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 class Route

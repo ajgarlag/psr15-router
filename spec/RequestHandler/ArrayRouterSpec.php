@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Ajgarlag\Psr15\Router\Delegate;
+namespace spec\Ajgarlag\Psr15\Router\RequestHandler;
 
-use Ajgarlag\Psr15\Router\Delegate\ArrayRouter;
-use Ajgarlag\Psr15\Router\Delegate\Route;
-use Interop\Http\ServerMiddleware\DelegateInterface;
+use Ajgarlag\Psr15\Router\RequestHandler\ArrayRouter;
+use Ajgarlag\Psr15\Router\RequestHandler\Route;
+use Interop\Http\Server\RequestHandlerInterface;
 use PhpSpec\ObjectBehavior;
 
 class ArrayRouterSpec extends ObjectBehavior
@@ -53,21 +53,21 @@ class ArrayRouterSpec extends ObjectBehavior
         $this->getRoutes()->shouldNotContain($route1);
     }
 
-    public function it_returns_matched_route_delegate(
+    public function it_returns_matched_route_request_handler(
         Route $route1,
         Route $route2,
-        DelegateInterface $routedDelegate
+        RequestHandlerInterface $routedRequestHandler
     ) {
         $request = $this->fakeAServerRequest();
 
         $route1->match($request)->willReturn(false);
         $route2->match($request)->willReturn(true);
-        $route2->getDelegate()->willReturn($routedDelegate);
+        $route2->getRequestHandler()->willReturn($routedRequestHandler);
 
         $this->addRoute($route1);
         $this->addRoute($route2);
 
-        $this->route($request)->shouldReturn($routedDelegate);
+        $this->route($request)->shouldReturn($routedRequestHandler);
     }
 
     public function it_returns_null_if_no_matched_route(
