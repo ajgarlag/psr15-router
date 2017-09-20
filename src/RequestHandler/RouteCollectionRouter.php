@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Ajgarlag\Psr15\Router\Delegate;
+namespace Ajgarlag\Psr15\Router\RequestHandler;
 
 interface RouteCollectionRouter extends Router
 {

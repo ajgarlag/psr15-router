@@ -24,7 +24,7 @@ $ composer require ajgarlag/psr15-router
 Usage
 -----
 
-You can choose if you want to route your request through a [MiddlewareInterface] or a [DelegateInterface]
+You can choose if you want to route your request through a [MiddlewareInterface] or a [RequestHandlerInterface]
 
 ### Middleware routing
 
@@ -54,43 +54,44 @@ $router->addRoute($adminRoute);
 
 $routerMiddleware = new RouterMiddleware($router);
 
-$response = $routerMiddleware->process($request, $delegate);
+$response = $routerMiddleware->process($request, $requestHandler);
 ```
 
-If the router does not return any middleware to process the request, it is processed directly through the delegate.
+If the router does not return any middleware to process the request, it is processed directly through the request
+handler.
 
 
-### Delegate routing
+### Request handler routing
 
-With this option, you has to build a `Router` to discriminate which delegate will process the request.
-Then build `RouterDelegate` to process the request. A failover delegate is required to process the request if the router
-cannot route the request. Usually this failover delegate should return a 404 response.
+With this option, you has to build a `Router` to discriminate which request handler will process the request.
+Then build `RouterRequestHandler` to process the request. A failover request handler is required to process the request
+if the router cannot route the request. Usually this failover request handler should return a 404 response.
 
 ```php
 use Ajgarlag\Psr15\Router\Matcher\UriRegexRequestMatcher;
-use Ajgarlag\Psr15\Router\Delegate\Route;
-use Ajgarlag\Psr15\Router\Delegate\ArrayRouter;
-use Ajgarlag\Psr15\Router\Delegate\RouterDelegate;
+use Ajgarlag\Psr15\Router\RequestHandler\Route;
+use Ajgarlag\Psr15\Router\RequestHandler\ArrayRouter;
+use Ajgarlag\Psr15\Router\RequestHandler\RouterRequestHandler;
 
-$userDelegate; //Some delegate to process user requests
+$userRequestHandler; //Some request handler to process user requests
 $userRoute = new Route(
     new UriRegexRequestMatcher('^http(s)?://example.org/user/'),
-    $userDelegate
+    $userRequestHandler
 );
-$adminDelegate; //Some delegate to process admin requests
+$adminRequestHandler; //Some request handler to process admin requests
 $adminRoute = new Route(
     new UriRegexRequestMatcher('^http(s)?://example.org/admin/'),
-    $adminDelegate
+    $adminRequestHandler
 );
 
 $router = new ArrayRouter();
 $router->addRoute($userRoute);
 $router->addRoute($adminRoute);
 
-$failoverDelegate; // Delegate that returns 404 unconditionally
-$routerDelegate = new RouterDelegate($router, $failoverDelegate);
+$failoverRequestHandler; // Request handler that returns 404 unconditionally
+$routerRequestHandler = new RouterRequestHandler($router, $failoverRequestHandler);
 
-$response = $routerDelegate->process($request);
+$response = $routerRequestHandler->handle($request);
 ```
 
 License
@@ -115,7 +116,7 @@ If you find this component useful, please add a ★ in the [GitHub repository pa
 [PSR-7]: http://www.php-fig.org/psr/psr-7/
 [PSR-15]: https://github.com/http-interop/http-middleware
 [MiddlewareInterface]: https://github.com/http-interop/http-middleware/blob/master/src/MiddlewareInterface.php
-[DelegateInterface]: https://github.com/http-interop/http-middleware/blob/master/src/DelegateInterface.php
+[RequestHandlerInterface]: https://github.com/http-interop/http-middleware/blob/master/src/RequestHandlerInterface.php
 [LICENSE]: LICENSE
 [Github issue tracker]: https://github.com/ajgarlag/psr15-router/issues
 [Antonio J. García Lagar]: http://aj.garcialagar.es

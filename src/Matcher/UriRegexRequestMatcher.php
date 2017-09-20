@@ -27,6 +27,6 @@ class UriRegexRequestMatcher implements RequestMatcher
 
     public function match(ServerRequestInterface $request)
     {
-        return preg_match($this->uriPattern, (string) $request->getUri()) === 1;
+        return 1 === preg_match($this->uriPattern, (string) $request->getUri());
     }
 }

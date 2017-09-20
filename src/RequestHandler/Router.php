@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Ajgarlag\Psr15\Router\Delegate;
+namespace Ajgarlag\Psr15\Router\RequestHandler;
 
-use Interop\Http\ServerMiddleware\DelegateInterface;
+use Interop\Http\Server\RequestHandlerInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 interface Router
@@ -19,7 +19,7 @@ interface Router
     /**
      * @param ServerRequestInterface $request
      *
-     * @return DelegateInterface|null
+     * @return RequestHandlerInterface|null
      */
     public function route(ServerRequestInterface $request);
 }

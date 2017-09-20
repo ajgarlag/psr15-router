@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Ajgarlag\Psr15\Router\Delegate;
+namespace spec\Ajgarlag\Psr15\Router\RequestHandler;
 
-use Ajgarlag\Psr15\Router\Delegate\Route;
 use Ajgarlag\Psr15\Router\Matcher\RequestMatcher;
-use Interop\Http\ServerMiddleware\DelegateInterface;
+use Ajgarlag\Psr15\Router\RequestHandler\Route;
+use Interop\Http\Server\RequestHandlerInterface;
 use PhpSpec\ObjectBehavior;
 
 class RouteSpec extends ObjectBehavior
@@ -22,9 +22,9 @@ class RouteSpec extends ObjectBehavior
 
     public function let(
         RequestMatcher $requestMatcher,
-        DelegateInterface $delegate
+        RequestHandlerInterface $requestHandler
     ) {
-        $this->beConstructedWith($requestMatcher, $delegate);
+        $this->beConstructedWith($requestMatcher, $requestHandler);
     }
 
     public function it_is_initializable()
@@ -40,8 +40,8 @@ class RouteSpec extends ObjectBehavior
         $requestMatcher->match($request)->shouldHaveBeenCalled();
     }
 
-    public function it_has_a_delegate()
+    public function it_has_a_request_handler()
     {
-        $this->getDelegate()->shouldReturnAnInstanceOf(DelegateInterface::class);
+        $this->getRequestHandler()->shouldReturnAnInstanceOf(RequestHandlerInterface::class);
     }
 }
