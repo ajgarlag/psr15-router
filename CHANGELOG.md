@@ -8,16 +8,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Substitution of `Delegate` related code with `RequestHandler` to be compatible with
   http-interop/http-middleware:0.5
 
-## [0.1.1] - 2017-01-17
+## [0.1.1] - 2017-07-17
 
 ### Added
-- `Pipe` and `Stack` can be initialized with an array of middlewares.
+- New request matcher `AlwaysMatchRequestMatcher`
 
-## 0.1.0 - 2017-01-13
+## 0.1.0 - 2017-07-14
 
-### Added
-- `Pipe` class.
-- `Stack` class.
+First release
 
-[Unreleased]: https://github.com/ajgarlag/psr15-dispatcher/compare/0.1.1...master
-[0.1.1]: https://github.com/ajgarlag/psr15-dispatcher/compare/0.1.0...0.1.1
+[Unreleased]: https://github.com/ajgarlag/psr15-router/compare/0.2.0...master
+[0.2.0]: https://github.com/ajgarlag/psr15-router/compare/0.1.1...0.2.0
+[0.1.1]: https://github.com/ajgarlag/psr15-router/compare/0.1.0...0.1.1
