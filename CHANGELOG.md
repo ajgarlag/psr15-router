@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2017-09-20
+
 ### Changed
 - Substitution of `Delegate` related code with `RequestHandler` to be compatible with
   http-interop/http-middleware:0.5
