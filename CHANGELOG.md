@@ -9,9 +9,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   * `AndRequestMatcher`
   * `NegatedRequestMatcher`
   * `OrRequestMatcher`
+- New request matchers for URI parts
+  * `UriHostnameRegexRequestMatcher`
+  * `UriPathRegexRequestMatcher`
+  * `UriSchemeRequestMatcher`
 
 ### Changed
 - Renamed `AlwaysMatchRequestMatcher` to `AnyRequestMatcher`
+
+### Deleted
+- Removed `UriRegexRequestMatcher`
 
 ## [0.2.0] - 2017-09-20
 
