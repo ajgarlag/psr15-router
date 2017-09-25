@@ -11,16 +11,16 @@
 
 namespace spec\Ajgarlag\Psr15\Router\Matcher;
 
-use Ajgarlag\Psr15\Router\Matcher\AlwaysMatchRequestMatcher;
+use Ajgarlag\Psr15\Router\Matcher\AnyRequestMatcher;
 use PhpSpec\ObjectBehavior;
 
-class AlwaysMatchRequestMatcherSpec extends ObjectBehavior
+class AnyRequestMatcherSpec extends ObjectBehavior
 {
     use \spec\Ajgarlag\Psr15\Router\Psr7FactoryTrait;
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(AlwaysMatchRequestMatcher::class);
+        $this->shouldHaveType(AnyRequestMatcher::class);
     }
 
     public function it_matches_request()

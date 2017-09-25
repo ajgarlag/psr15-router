@@ -13,7 +13,7 @@ namespace Ajgarlag\Psr15\Router\Matcher;
 
 use Psr\Http\Message\ServerRequestInterface;
 
-class AlwaysMatchRequestMatcher implements RequestMatcher
+class AnyRequestMatcher implements RequestMatcher
 {
     public function match(ServerRequestInterface $request)
     {

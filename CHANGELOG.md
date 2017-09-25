@@ -4,6 +4,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- New request matchers for boolean composition:
+  * `AndRequestMatcher`
+  * `NegatedRequestMatcher`
+  * `OrRequestMatcher`
+
+### Changed
+- Renamed `AlwaysMatchRequestMatcher` to `AnyRequestMatcher`
+
 ## [0.2.0] - 2017-09-20
 
 ### Changed
