@@ -24,7 +24,7 @@ class MethodRequestMatcherSpec extends ObjectBehavior
         $this->shouldHaveType(MethodRequestMatcher::class);
     }
 
-    public function it_matchs_request_if_methods_param_matchs()
+    public function it_matches_request_if_methods_param_matches()
     {
         $this->beConstructedWith(['GET', 'POST']);
         $request = $this->fakeAServerRequest([], 'GET');

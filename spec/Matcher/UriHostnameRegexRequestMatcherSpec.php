@@ -24,7 +24,7 @@ class UriHostnameRegexRequestMatcherSpec extends ObjectBehavior
         $this->shouldHaveType(UriHostnameRegexRequestMatcher::class);
     }
 
-    public function it_matchs_request_if_host_pattern_matchs()
+    public function it_matches_request_if_host_pattern_matches()
     {
         $this->beConstructedWith('example.(?:com|org)');
         $request = $this->fakeAServerRequest([], 'GET', 'http://example.org');

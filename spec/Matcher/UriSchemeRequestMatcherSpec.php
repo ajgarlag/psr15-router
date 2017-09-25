@@ -24,7 +24,7 @@ class UriSchemeRequestMatcherSpec extends ObjectBehavior
         $this->shouldHaveType(UriSchemeRequestMatcher::class);
     }
 
-    public function it_matchs_request_if_schemes_param_matchs()
+    public function it_matches_request_if_schemes_param_matches()
     {
         $this->beConstructedWith(['http', 'https']);
         $request = $this->fakeAServerRequest([], 'GET', 'http://example.org');

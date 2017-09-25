@@ -29,7 +29,7 @@ class OrRequestMatcherSpec extends ObjectBehavior
         $this->shouldHaveType(OrRequestMatcher::class);
     }
 
-    public function it_matches_request_if_any_of_inner_request_matchers_matchs(RequestMatcher $requestMatcher1, RequestMatcher $requestMatcher2)
+    public function it_matches_request_if_any_of_inner_request_matchers_matches(RequestMatcher $requestMatcher1, RequestMatcher $requestMatcher2)
     {
         $request = $this->fakeAServerRequest();
 

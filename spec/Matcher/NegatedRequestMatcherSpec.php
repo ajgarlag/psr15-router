@@ -38,7 +38,7 @@ class NegatedRequestMatcherSpec extends ObjectBehavior
         $this->match($request)->shouldBe(true);
     }
 
-    public function it_does_not_match_request_if_inner_request_matcher_matchs(RequestMatcher $requestMatcher)
+    public function it_does_not_match_request_if_inner_request_matcher_matches(RequestMatcher $requestMatcher)
     {
         $request = $this->fakeAServerRequest();
 
