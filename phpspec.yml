@@ -3,3 +3,5 @@ suites:
         namespace: Ajgarlag\Psr15\Router
         psr4_prefix: Ajgarlag\Psr15\Router
 formatter.name: pretty
+extensions:
+    Memio\SpecGen\MemioSpecGenExtension: ~
