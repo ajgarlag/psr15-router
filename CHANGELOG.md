@@ -13,6 +13,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   * `UriHostnameRegexRequestMatcher`
   * `UriPathRegexRequestMatcher`
   * `UriSchemeRequestMatcher`
+- New `MethodRequestMatcher` to match request method
 
 ### Changed
 - Renamed `AlwaysMatchRequestMatcher` to `AnyRequestMatcher`
