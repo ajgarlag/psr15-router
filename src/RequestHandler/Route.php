@@ -12,8 +12,8 @@
 namespace Ajgarlag\Psr15\Router\RequestHandler;
 
 use Ajgarlag\Psr15\Router\Matcher\RequestMatcher;
-use Interop\Http\Server\RequestHandlerInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 
 class Route
 {
@@ -21,8 +21,7 @@ class Route
     private $requestHandler;
 
     /**
-     * @param ServerRequestMatcher    $requestMatcher
-     * @param RequestHandlerInterface $requestHandler
+     * @param ServerRequestMatcher $requestMatcher
      */
     public function __construct(RequestMatcher $requestMatcher, RequestHandlerInterface $requestHandler)
     {
@@ -31,8 +30,6 @@ class Route
     }
 
     /**
-     * @param ServerRequestInterface $request
-     *
      * @return bool
      */
     public function match(ServerRequestInterface $request)

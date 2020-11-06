@@ -11,14 +11,12 @@
 
 namespace Ajgarlag\Psr15\Router\RequestHandler;
 
-use Interop\Http\Server\RequestHandlerInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 
 interface Router
 {
     /**
-     * @param ServerRequestInterface $request
-     *
      * @return RequestHandlerInterface|null
      */
     public function route(ServerRequestInterface $request);

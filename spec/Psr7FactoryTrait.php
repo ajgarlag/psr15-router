@@ -11,9 +11,7 @@
 
 namespace spec\Ajgarlag\Psr15\Router;
 
-use Http\Factory\Diactoros\ResponseFactory;
-use Http\Factory\Diactoros\ServerRequestFactory;
-use Http\Factory\Diactoros\UriFactory;
+use Nyholm\Psr7\Factory\Psr17Factory;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -28,12 +26,8 @@ trait Psr7FactoryTrait
      */
     protected function fakeAServerRequest($server = [], $method = 'GET', $uri = 'http://example.org')
     {
-        $requestFactory = new ServerRequestFactory();
-        $uriFactory = new UriFactory();
-        $request = $requestFactory->createServerRequestFromArray($server)
-            ->withMethod($method)
-            ->withUri($uriFactory->createUri($uri))
-        ;
+        $requestFactory = new Psr17Factory();
+        $request = $requestFactory->createServerRequest($method, $uri, $server);
 
         return $request;
     }
@@ -45,8 +39,8 @@ trait Psr7FactoryTrait
      */
     protected function fakeAResponse($code = 200)
     {
-        $factory = new ResponseFactory();
-        $response = $factory->createResponse($code);
+        $responseFactory = new Psr17Factory();
+        $response = $responseFactory->createResponse($code);
 
         return $response;
     }

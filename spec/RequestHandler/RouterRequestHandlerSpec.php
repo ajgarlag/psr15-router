@@ -13,10 +13,10 @@ namespace spec\Ajgarlag\Psr15\Router\RequestHandler;
 
 use Ajgarlag\Psr15\Router\RequestHandler\Router;
 use Ajgarlag\Psr15\Router\RequestHandler\RouterRequestHandler;
-use Interop\Http\Server\RequestHandlerInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 
 class RouterRequestHandlerSpec extends ObjectBehavior
 {
@@ -39,6 +39,7 @@ class RouterRequestHandlerSpec extends ObjectBehavior
         RequestHandlerInterface $failoverRequestHandler
     ) {
         $router->route(Argument::type(ServerRequestInterface::class))->willReturn(null);
+        $failoverRequestHandler->handle(Argument::type(ServerRequestInterface::class))->willReturn($this->fakeAResponse());
 
         $request = $this->fakeAServerRequest();
         $this->handle($request);
@@ -52,6 +53,7 @@ class RouterRequestHandlerSpec extends ObjectBehavior
         RequestHandlerInterface $routedRequestHandler
     ) {
         $router->route(Argument::type(ServerRequestInterface::class))->willReturn($routedRequestHandler);
+        $routedRequestHandler->handle(Argument::type(ServerRequestInterface::class))->willReturn($this->fakeAResponse());
 
         $request = $this->fakeAServerRequest();
         $this->handle($request);

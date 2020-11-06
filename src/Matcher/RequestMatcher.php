@@ -16,8 +16,6 @@ use Psr\Http\Message\ServerRequestInterface;
 interface RequestMatcher
 {
     /**
-     * @param ServerRequestInterface $request
-     *
      * @return bool
      */
     public function match(ServerRequestInterface $request);

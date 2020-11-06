@@ -13,8 +13,8 @@ namespace spec\Ajgarlag\Psr15\Router\RequestHandler;
 
 use Ajgarlag\Psr15\Router\Matcher\RequestMatcher;
 use Ajgarlag\Psr15\Router\RequestHandler\Route;
-use Interop\Http\Server\RequestHandlerInterface;
 use PhpSpec\ObjectBehavior;
+use Psr\Http\Server\RequestHandlerInterface;
 
 class RouteSpec extends ObjectBehavior
 {

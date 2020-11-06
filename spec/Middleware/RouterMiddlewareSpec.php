@@ -13,11 +13,11 @@ namespace spec\Ajgarlag\Psr15\Router\Middleware;
 
 use Ajgarlag\Psr15\Router\Middleware\Router;
 use Ajgarlag\Psr15\Router\Middleware\RouterMiddleware;
-use Interop\Http\Server\MiddlewareInterface;
-use Interop\Http\Server\RequestHandlerInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\MiddlewareInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 
 class RouterMiddlewareSpec extends ObjectBehavior
 {
@@ -40,6 +40,7 @@ class RouterMiddlewareSpec extends ObjectBehavior
         RequestHandlerInterface $requestHandler
     ) {
         $router->route(Argument::type(ServerRequestInterface::class))->willReturn(null);
+        $requestHandler->handle(Argument::type(ServerRequestInterface::class))->willReturn($this->fakeAResponse());
 
         $request = $this->fakeAServerRequest();
         $this->process($request, $requestHandler);
@@ -56,6 +57,7 @@ class RouterMiddlewareSpec extends ObjectBehavior
         $router->route(Argument::type(ServerRequestInterface::class))->willReturn($routedMiddleware);
         $routedMiddleware->process(Argument::type(ServerRequestInterface::class), Argument::type(RequestHandlerInterface::class))
             ->will(function ($args) { return $args[1]->handle($args[0]); });
+        $requestHandler->handle(Argument::type(ServerRequestInterface::class))->willReturn($this->fakeAResponse());
 
         $request = $this->fakeAServerRequest();
         $this->process($request, $requestHandler);

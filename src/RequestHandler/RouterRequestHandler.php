@@ -11,8 +11,9 @@
 
 namespace Ajgarlag\Psr15\Router\RequestHandler;
 
-use Interop\Http\Server\RequestHandlerInterface;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 
 class RouterRequestHandler implements RequestHandlerInterface
 {
@@ -25,7 +26,7 @@ class RouterRequestHandler implements RequestHandlerInterface
         $this->failoverRequestHandler = $failoverRequestHandler;
     }
 
-    public function handle(ServerRequestInterface $request)
+    public function handle(ServerRequestInterface $request): ResponseInterface
     {
         if (null === $requestHandler = $this->router->route($request)) {
             return $this->failoverRequestHandler->handle($request);

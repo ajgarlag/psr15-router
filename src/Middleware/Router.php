@@ -11,14 +11,12 @@
 
 namespace Ajgarlag\Psr15\Router\Middleware;
 
-use Interop\Http\Server\MiddlewareInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\MiddlewareInterface;
 
 interface Router
 {
     /**
-     * @param ServerRequestInterface $request
-     *
      * @return MiddlewareInterface|null
      */
     public function route(ServerRequestInterface $request);

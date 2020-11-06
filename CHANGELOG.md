@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- Updated to PSR-15
+
 ## [0.3.0] - 2017-09-25
 
 ### Added
