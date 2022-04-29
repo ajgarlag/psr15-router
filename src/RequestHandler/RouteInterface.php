@@ -11,14 +11,12 @@
 
 namespace Ajgarlag\Psr15\Router\RequestHandler;
 
-interface RouteCollectionRouter extends Router
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
+
+interface RouteInterface
 {
-    public function addRoute(RouteInterface $route): void;
+    public function match(ServerRequestInterface $request): bool;
 
-    public function removeRoute(RouteInterface $route): void;
-
-    /**
-     * @return RouteInterface[]
-     */
-    public function getRoutes();
+    public function getRequestHandler(): RequestHandlerInterface;
 }

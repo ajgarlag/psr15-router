@@ -12,7 +12,7 @@
 namespace spec\Ajgarlag\Psr15\Router\Middleware;
 
 use Ajgarlag\Psr15\Router\Middleware\ArrayRouter;
-use Ajgarlag\Psr15\Router\Middleware\Route;
+use Ajgarlag\Psr15\Router\Middleware\RouteInterface;
 use PhpSpec\ObjectBehavior;
 use Psr\Http\Server\MiddlewareInterface;
 
@@ -31,8 +31,8 @@ class ArrayRouterSpec extends ObjectBehavior
     }
 
     public function it_can_have_added_routes(
-        Route $route1,
-        Route $route2
+        RouteInterface $route1,
+        RouteInterface $route2
     ) {
         $this->addRoute($route1);
         $this->getRoutes()->shouldHaveCount(1);
@@ -44,7 +44,7 @@ class ArrayRouterSpec extends ObjectBehavior
     }
 
     public function it_can_remove_added_routes(
-        Route $route1
+        RouteInterface $route1
     ) {
         $this->addRoute($route1);
         $this->getRoutes()->shouldContain($route1);
@@ -54,8 +54,8 @@ class ArrayRouterSpec extends ObjectBehavior
     }
 
     public function it_returns_matched_route_middleware(
-        Route $route1,
-        Route $route2,
+        RouteInterface $route1,
+        RouteInterface $route2,
         MiddlewareInterface $routedMiddleware
     ) {
         $request = $this->fakeAServerRequest();
@@ -71,8 +71,8 @@ class ArrayRouterSpec extends ObjectBehavior
     }
 
     public function it_returns_null_if_no_matched_route(
-        Route $route1,
-        Route $route2
+        RouteInterface $route1,
+        RouteInterface $route2
     ) {
         $request = $this->fakeAServerRequest();
 

@@ -11,14 +11,12 @@
 
 namespace Ajgarlag\Psr15\Router\Middleware;
 
-interface RouteCollectionRouter extends Router
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\MiddlewareInterface;
+
+interface RouteInterface
 {
-    public function addRoute(RouteInterface $route): void;
+    public function match(ServerRequestInterface $request): bool;
 
-    public function removeRoute(RouteInterface $route): void;
-
-    /**
-     * @return RouteInterface[]
-     */
-    public function getRoutes(): array;
+    public function getMiddleware(): MiddlewareInterface;
 }

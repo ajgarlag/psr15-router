@@ -15,10 +15,7 @@ use Ajgarlag\Psr15\Router\Matcher\RequestMatcher;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-/**
- * @final
- */
-class Route
+final class Route implements RouteInterface
 {
     private RequestMatcher $requestMatcher;
     private RequestHandlerInterface $requestHandler;

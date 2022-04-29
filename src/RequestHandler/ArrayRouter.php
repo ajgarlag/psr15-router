@@ -17,7 +17,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 final class ArrayRouter implements RouteCollectionRouter
 {
     /**
-     * @var Route[]
+     * @var RouteInterface[]
      */
     private $routes = [];
 
@@ -26,12 +26,12 @@ final class ArrayRouter implements RouteCollectionRouter
         return $this->routes;
     }
 
-    public function addRoute(Route $route): void
+    public function addRoute(RouteInterface $route): void
     {
         $this->routes[spl_object_id($route)] = $route;
     }
 
-    public function removeRoute(Route $route): void
+    public function removeRoute(RouteInterface $route): void
     {
         unset($this->routes[spl_object_id($route)]);
     }
