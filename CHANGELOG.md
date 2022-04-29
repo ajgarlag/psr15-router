@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - Add `Middleware\RouteInterface` and `RequestHandler\RouteInterface`
+- Add `Middleware\ContainerRoute` and `RequestHandler\ContainerRoute`
 
 ### Changed
 - All classes are `final`.
