@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.5.0] - 2022-04-29
+
 ### Added
 - Add `Middleware\RouteInterface` and `RequestHandler\RouteInterface`
 - Add `Middleware\ContainerRoute` and `RequestHandler\ContainerRoute`
