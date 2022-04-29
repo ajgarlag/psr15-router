@@ -3,7 +3,7 @@ Psr15 Router
 
 The Psr15 Router component allows you to route [PSR-7] requests through [PSR-15] middlewares.
 
-[![Build Status](https://travis-ci.org/ajgarlag/psr15-router.png?branch=master)](https://travis-ci.org/ajgarlag/psr15-router)
+[![Build Status](https://github.com/ajgarlag/psr15-router/actions/workflows/tests.yaml/badge.svg?branch=master)](https://github.com/ajgarlag/psr15-router/actions/workflows/tests.yaml)
 [![Latest Stable Version](https://poser.pugx.org/ajgarlag/psr15-router/v/stable.png)](https://packagist.org/packages/ajgarlag/psr15-router)
 [![Latest Unstable Version](https://poser.pugx.org/ajgarlag/psr15-router/v/unstable.png)](https://packagist.org/packages/ajgarlag/psr15-router)
 [![Total Downloads](https://poser.pugx.org/ajgarlag/psr15-router/downloads.png)](https://packagist.org/packages/ajgarlag/psr15-router)
