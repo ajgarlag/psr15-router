@@ -114,9 +114,9 @@ Developed with ♥ by [Antonio J. García Lagar].
 If you find this component useful, please add a ★ in the [GitHub repository page] and/or the [Packagist package page].
 
 [PSR-7]: http://www.php-fig.org/psr/psr-7/
-[PSR-15]: https://github.com/http-interop/http-middleware
-[MiddlewareInterface]: https://github.com/http-interop/http-middleware/blob/master/src/MiddlewareInterface.php
-[RequestHandlerInterface]: https://github.com/http-interop/http-middleware/blob/master/src/RequestHandlerInterface.php
+[PSR-15]: https://www.php-fig.org/psr/psr-15/
+[MiddlewareInterface]: https://www.php-fig.org/psr/psr-15/#22-psrhttpservermiddlewareinterface
+[RequestHandlerInterface]: https://www.php-fig.org/psr/psr-15/#21-psrhttpserverrequesthandlerinterface
 [LICENSE]: LICENSE
 [Github issue tracker]: https://github.com/ajgarlag/psr15-router/issues
 [Antonio J. García Lagar]: http://aj.garcialagar.es
