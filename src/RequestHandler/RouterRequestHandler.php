@@ -15,10 +15,10 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class RouterRequestHandler implements RequestHandlerInterface
+final class RouterRequestHandler implements RequestHandlerInterface
 {
-    private $router;
-    private $failoverRequestHandler;
+    private Router $router;
+    private RequestHandlerInterface $failoverRequestHandler;
 
     public function __construct(Router $router, RequestHandlerInterface $failoverRequestHandler)
     {

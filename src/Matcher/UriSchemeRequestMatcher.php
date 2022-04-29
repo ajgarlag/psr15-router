@@ -13,16 +13,19 @@ namespace Ajgarlag\Psr15\Router\Matcher;
 
 use Psr\Http\Message\ServerRequestInterface;
 
-class UriSchemeRequestMatcher
+final class UriSchemeRequestMatcher
 {
-    private $schemes;
+    /**
+     * @var string[]
+     */
+    private array $schemes;
 
     public function __construct($schemes)
     {
         $this->schemes = array_map('strtolower', (array) $schemes);
     }
 
-    public function match(ServerRequestInterface $serverRequest)
+    public function match(ServerRequestInterface $serverRequest): bool
     {
         return in_array($serverRequest->getUri()->getScheme(), $this->schemes, true);
     }

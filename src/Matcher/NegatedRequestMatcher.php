@@ -11,16 +11,18 @@
 
 namespace Ajgarlag\Psr15\Router\Matcher;
 
-class NegatedRequestMatcher
+use Psr\Http\Message\ServerRequestInterface;
+
+final class NegatedRequestMatcher
 {
-    private $requestMatcher;
+    private RequestMatcher $requestMatcher;
 
     public function __construct(RequestMatcher $requestMatcher)
     {
         $this->requestMatcher = $requestMatcher;
     }
 
-    public function match(\Psr\Http\Message\ServerRequestInterface $request)
+    public function match(ServerRequestInterface $request): bool
     {
         return !$this->requestMatcher->match($request);
     }

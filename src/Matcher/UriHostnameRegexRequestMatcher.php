@@ -13,16 +13,16 @@ namespace Ajgarlag\Psr15\Router\Matcher;
 
 use Psr\Http\Message\ServerRequestInterface;
 
-class UriHostnameRegexRequestMatcher
+final class UriHostnameRegexRequestMatcher
 {
-    private $pattern;
+    private string $pattern;
 
     public function __construct($pattern)
     {
         $this->pattern = '~'.str_replace('~', '\~', $pattern).'~i';
     }
 
-    public function match(ServerRequestInterface $serverRequest)
+    public function match(ServerRequestInterface $serverRequest): bool
     {
         return 1 === preg_match($this->pattern, $serverRequest->getUri()->getHost());
     }

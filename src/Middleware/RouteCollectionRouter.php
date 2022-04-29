@@ -13,12 +13,12 @@ namespace Ajgarlag\Psr15\Router\Middleware;
 
 interface RouteCollectionRouter extends Router
 {
-    public function addRoute(Route $route);
+    public function addRoute(Route $route): void;
 
-    public function removeRoute(Route $route);
+    public function removeRoute(Route $route): void;
 
     /**
      * @return Route[]
      */
-    public function getRoutes();
+    public function getRoutes(): array;
 }

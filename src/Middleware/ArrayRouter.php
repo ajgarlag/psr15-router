@@ -12,35 +12,38 @@
 namespace Ajgarlag\Psr15\Router\Middleware;
 
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\MiddlewareInterface;
 
-class ArrayRouter implements RouteCollectionRouter
+final class ArrayRouter implements RouteCollectionRouter
 {
     /**
      * @var Route[]
      */
     private $routes = [];
 
-    public function getRoutes()
+    public function getRoutes(): array
     {
         return $this->routes;
     }
 
-    public function addRoute(Route $route)
+    public function addRoute(Route $route): void
     {
-        $this->routes[spl_object_hash($route)] = $route;
+        $this->routes[spl_object_id($route)] = $route;
     }
 
-    public function removeRoute(Route $route)
+    public function removeRoute(Route $route): void
     {
-        unset($this->routes[spl_object_hash($route)]);
+        unset($this->routes[spl_object_id($route)]);
     }
 
-    public function route(ServerRequestInterface $request)
+    public function route(ServerRequestInterface $request): ?MiddlewareInterface
     {
         foreach ($this->routes as $route) {
             if ($route->match($request)) {
                 return $route->getMiddleware();
             }
         }
+
+        return null;
     }
 }

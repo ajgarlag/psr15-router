@@ -13,9 +13,9 @@ namespace Ajgarlag\Psr15\Router\Matcher;
 
 use Psr\Http\Message\ServerRequestInterface;
 
-class AnyRequestMatcher implements RequestMatcher
+final class AnyRequestMatcher implements RequestMatcher
 {
-    public function match(ServerRequestInterface $request)
+    public function match(ServerRequestInterface $request): bool
     {
         return true;
     }

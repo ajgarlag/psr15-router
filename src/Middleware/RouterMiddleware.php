@@ -16,9 +16,9 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class RouterMiddleware implements MiddlewareInterface
+final class RouterMiddleware implements MiddlewareInterface
 {
-    private $router;
+    private Router $router;
 
     public function __construct(Router $router)
     {

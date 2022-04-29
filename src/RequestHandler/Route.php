@@ -15,32 +15,26 @@ use Ajgarlag\Psr15\Router\Matcher\RequestMatcher;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
+/**
+ * @final
+ */
 class Route
 {
-    private $requestMatcher;
-    private $requestHandler;
+    private RequestMatcher $requestMatcher;
+    private RequestHandlerInterface $requestHandler;
 
-    /**
-     * @param ServerRequestMatcher $requestMatcher
-     */
     public function __construct(RequestMatcher $requestMatcher, RequestHandlerInterface $requestHandler)
     {
         $this->requestMatcher = $requestMatcher;
         $this->requestHandler = $requestHandler;
     }
 
-    /**
-     * @return bool
-     */
-    public function match(ServerRequestInterface $request)
+    public function match(ServerRequestInterface $request): bool
     {
         return $this->requestMatcher->match($request);
     }
 
-    /**
-     * @return RequestHandlerInterface
-     */
-    public function getRequestHandler()
+    public function getRequestHandler(): RequestHandlerInterface
     {
         return $this->requestHandler;
     }

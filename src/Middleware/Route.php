@@ -15,32 +15,26 @@ use Ajgarlag\Psr15\Router\Matcher\RequestMatcher;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 
+/**
+ * @final
+ */
 class Route
 {
-    private $requestMatcher;
-    private $middleware;
+    private RequestMatcher $requestMatcher;
+    private MiddlewareInterface $middleware;
 
-    /**
-     * @param ServerRequestMatcher $requestMatcher
-     */
     public function __construct(RequestMatcher $requestMatcher, MiddlewareInterface $middleware)
     {
         $this->requestMatcher = $requestMatcher;
         $this->middleware = $middleware;
     }
 
-    /**
-     * @return bool
-     */
-    public function match(ServerRequestInterface $request)
+    public function match(ServerRequestInterface $request): bool
     {
         return $this->requestMatcher->match($request);
     }
 
-    /**
-     * @return MiddlewareInterface
-     */
-    public function getMiddleware()
+    public function getMiddleware(): MiddlewareInterface
     {
         return $this->middleware;
     }

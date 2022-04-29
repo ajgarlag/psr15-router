@@ -13,19 +13,19 @@ namespace Ajgarlag\Psr15\Router\Matcher;
 
 use Psr\Http\Message\ServerRequestInterface;
 
-class MethodRequestMatcher
+final class MethodRequestMatcher
 {
-    private $methods;
+    private array $methods = [];
 
     /**
-     * @param string|string[] $methods
+     * @param string[] $methods
      */
-    public function __construct($methods)
+    public function __construct(array $methods)
     {
         $this->methods = array_map('strtoupper', (array) $methods);
     }
 
-    public function match(ServerRequestInterface $serverRequest)
+    public function match(ServerRequestInterface $serverRequest): bool
     {
         return in_array($serverRequest->getMethod(), $this->methods, true);
     }

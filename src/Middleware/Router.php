@@ -16,8 +16,5 @@ use Psr\Http\Server\MiddlewareInterface;
 
 interface Router
 {
-    /**
-     * @return MiddlewareInterface|null
-     */
-    public function route(ServerRequestInterface $request);
+    public function route(ServerRequestInterface $request): ?MiddlewareInterface;
 }

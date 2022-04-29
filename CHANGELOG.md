@@ -4,6 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- All classes are `final`.
+
+### Removed
+- Drop support of PHP <7.4
+
 ## [0.4.0] - 2020-11-17
 
 ### Changed

@@ -56,7 +56,9 @@ class RouterMiddlewareSpec extends ObjectBehavior
     ) {
         $router->route(Argument::type(ServerRequestInterface::class))->willReturn($routedMiddleware);
         $routedMiddleware->process(Argument::type(ServerRequestInterface::class), Argument::type(RequestHandlerInterface::class))
-            ->will(function ($args) { return $args[1]->handle($args[0]); });
+            ->will(function ($args) {
+                return $args[1]->handle($args[0]);
+            });
         $requestHandler->handle(Argument::type(ServerRequestInterface::class))->willReturn($this->fakeAResponse());
 
         $request = $this->fakeAServerRequest();

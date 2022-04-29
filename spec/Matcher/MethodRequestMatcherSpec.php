@@ -20,7 +20,7 @@ class MethodRequestMatcherSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->beConstructedWith('GET');
+        $this->beConstructedWith(['GET']);
         $this->shouldHaveType(MethodRequestMatcher::class);
     }
 
@@ -33,7 +33,7 @@ class MethodRequestMatcherSpec extends ObjectBehavior
 
     public function it_does_not_match_request_if_methods_param_does_not_match()
     {
-        $this->beConstructedWith('PUT');
+        $this->beConstructedWith(['PUT']);
         $request = $this->fakeAServerRequest([], 'POST');
         $this->match($request)->shouldBe(false);
     }

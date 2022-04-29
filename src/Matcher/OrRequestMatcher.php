@@ -11,10 +11,12 @@
 
 namespace Ajgarlag\Psr15\Router\Matcher;
 
-class OrRequestMatcher
+use Psr\Http\Message\ServerRequestInterface;
+
+final class OrRequestMatcher
 {
-    private $firstRequestMatcher;
-    private $lastRequestMatcher;
+    private RequestMatcher $firstRequestMatcher;
+    private RequestMatcher $lastRequestMatcher;
 
     public function __construct(RequestMatcher $firstRequestMatcher, RequestMatcher $lastRequestMatcher)
     {
@@ -22,7 +24,7 @@ class OrRequestMatcher
         $this->lastRequestMatcher = $lastRequestMatcher;
     }
 
-    public function match(\Psr\Http\Message\ServerRequestInterface $request)
+    public function match(ServerRequestInterface $request): bool
     {
         return $this->firstRequestMatcher->match($request)
             || $this->lastRequestMatcher->match($request);

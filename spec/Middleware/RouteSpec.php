@@ -35,9 +35,9 @@ class RouteSpec extends ObjectBehavior
     public function it_matches_request_through_request_matcher(RequestMatcher $requestMatcher)
     {
         $request = $this->fakeAServerRequest();
-        $this->match($request);
+        $requestMatcher->match($request)->willReturn(false)->shouldBeCalled();
 
-        $requestMatcher->match($request)->shouldHaveBeenCalled();
+        $this->match($request);
     }
 
     public function it_has_a_middleware()
