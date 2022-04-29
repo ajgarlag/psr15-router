@@ -20,9 +20,12 @@ final class UriSchemeRequestMatcher
      */
     private array $schemes;
 
-    public function __construct($schemes)
+    /**
+     * @param string[] $schemes
+     */
+    public function __construct(array $schemes)
     {
-        $this->schemes = array_map('strtolower', (array) $schemes);
+        $this->schemes = array_map('strtolower', $schemes);
     }
 
     public function match(ServerRequestInterface $serverRequest): bool

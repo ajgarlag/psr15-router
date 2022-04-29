@@ -13,9 +13,9 @@ namespace Ajgarlag\Psr15\Router\RequestHandler;
 
 interface RouteCollectionRouter extends Router
 {
-    public function addRoute(Route $route);
+    public function addRoute(Route $route): void;
 
-    public function removeRoute(Route $route);
+    public function removeRoute(Route $route): void;
 
     /**
      * @return Route[]

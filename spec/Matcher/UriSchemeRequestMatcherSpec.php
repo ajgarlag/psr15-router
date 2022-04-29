@@ -20,7 +20,7 @@ class UriSchemeRequestMatcherSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->beConstructedWith('http');
+        $this->beConstructedWith(['http']);
         $this->shouldHaveType(UriSchemeRequestMatcher::class);
     }
 
@@ -33,7 +33,7 @@ class UriSchemeRequestMatcherSpec extends ObjectBehavior
 
     public function it_does_not_match_request_if_schemes_param_does_not_match()
     {
-        $this->beConstructedWith('https');
+        $this->beConstructedWith(['https']);
         $request = $this->fakeAServerRequest([], 'GET', 'http://example.org');
         $this->match($request)->shouldBe(false);
     }

@@ -17,7 +17,7 @@ final class UriPathRegexRequestMatcher
 {
     private string $pattern;
 
-    public function __construct($pattern)
+    public function __construct(string $pattern)
     {
         $this->pattern = '~'.str_replace('~', '\~', $pattern).'~';
     }

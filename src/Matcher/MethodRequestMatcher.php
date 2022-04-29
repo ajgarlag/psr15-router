@@ -15,6 +15,9 @@ use Psr\Http\Message\ServerRequestInterface;
 
 final class MethodRequestMatcher
 {
+    /**
+     * @var string[]
+     */
     private array $methods = [];
 
     /**
@@ -22,7 +25,7 @@ final class MethodRequestMatcher
      */
     public function __construct(array $methods)
     {
-        $this->methods = array_map('strtoupper', (array) $methods);
+        $this->methods = array_map('strtoupper', $methods);
     }
 
     public function match(ServerRequestInterface $serverRequest): bool
