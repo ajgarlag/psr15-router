@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - Add support for `psr/container:^2`
+- Add support for `php:^8.2`
 
 ## [0.5.0] - 2022-04-29
 
