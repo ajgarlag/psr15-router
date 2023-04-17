@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.5.1] - 2022-04-23
+
 ### Added
 - Add support for `psr/container:^2`
 - Add support for `php:^8.2`
@@ -59,7 +61,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 First release
 
-[Unreleased]: https://github.com/ajgarlag/psr15-router/compare/0.5.0...master
+[Unreleased]: https://github.com/ajgarlag/psr15-router/compare/0.5.1...master
+[0.5.1]: https://github.com/ajgarlag/psr15-router/compare/0.5.0...0.5.1
 [0.5.0]: https://github.com/ajgarlag/psr15-router/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/ajgarlag/psr15-router/compare/0.3.0...0.4.0
 [0.3.0]: https://github.com/ajgarlag/psr15-router/compare/0.2.0...0.3.0
