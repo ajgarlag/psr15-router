@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- Add support for `psr/container:^2`
+
 ## [0.5.0] - 2022-04-29
 
 ### Added
