@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Removed
+- Drop support for PHP <8.0
+
 ## [0.5.1] - 2022-04-23
 
 ### Added
